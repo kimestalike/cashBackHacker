@@ -1,8 +1,7 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class CashbackHackServiceTest {
     @Test
@@ -12,14 +11,14 @@ public class CashbackHackServiceTest {
         int expected = 100;
         int actual = service.remain(900);
 
-        assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldThrowExceptionWhenNegativeValuePassedAsArgument() {
         CashbackHackService service = new CashbackHackService();
 
-        assertThrows(Exception.class, () -> {
+        Assert.assertThrows(Exception.class, () -> {
             service.remain(-1);
         });
     }
