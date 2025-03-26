@@ -15,14 +15,12 @@ public class CashbackHackServiceTest {
         assertEquals(actual, expected);
     }
 
-    // Странное поведение. Если человек
     @Test
     public void shouldThrowExceptionWhenNegativeValuePassedAsArgument() {
         CashbackHackService service = new CashbackHackService();
 
-        int expected = 0;
-        int actual = service.remain(-1);
-
-        assertEquals(actual, expected);
+        assertThrows(Exception.class, () -> {
+            service.remain(-1);
+        });
     }
 }
